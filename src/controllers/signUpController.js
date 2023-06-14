@@ -12,5 +12,5 @@ export const singUpController = async (req, res) => {
   const user = new User({ email, username, passwordHash })
   await user.save()
 
-  return res.status(201).send({ status: 'Success', ...user })
+  return res.status(201).send({ status: 'Success' })
 }

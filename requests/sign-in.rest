@@ -2,6 +2,6 @@ POST http://localhost:3000/sign-in/ HTTP/1.1
 content-type: application/json
 
 {
-  "username":"pipeUser1",
+  "username":"pipeUser2",
   "password":"123456"
 }
