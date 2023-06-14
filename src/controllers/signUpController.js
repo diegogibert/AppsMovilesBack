@@ -3,10 +3,14 @@ import bcrypt from 'bcrypt'
 
 export const singUpController = async (req, res) => {
   const { email, username, password } = req.body
+  const validUsername = User.find({ username })
+
+  if (validUsername) return res.status(400).send({ status: 'Failed', error: 'Username already exists' })
+
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(password, saltRounds)
   const user = new User({ email, username, passwordHash })
   await user.save()
 
-  return res.status(201).send(user)
+  return res.status(201).send({ status: 'Success', ...user })
 }
