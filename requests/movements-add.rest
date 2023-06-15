@@ -1,0 +1,14 @@
+POST http://localhost:3000/movements HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGIyYTQ4MDcyZDY5MWEyZTQ1NGZkNiIsInVzZXJuYW1lIjoicGlwZVVzZXI0IiwiaWF0IjoxNjg2ODQxOTM1LCJleHAiOjE2ODY4NDU1MzV9._T6Nujg8UKOGE-z82-ydDjB0ifjLdULqFHzhLebpMPU
+
+    {
+      "name": "Coca",
+      "description": "Coca con amigos",
+      "type": "Expense",
+      "category": "Oseo",
+      "date": "2015-03-25",
+      "account": "Visa",
+      "note": "No vale la pena",
+      "amount": 100
+    }

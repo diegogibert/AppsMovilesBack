@@ -1,7 +1,7 @@
 import { User } from '../models/User.js'
 import bcrypt from 'bcrypt'
 
-export const singUpController = async (req, res) => {
+export const singUp = async (req, res) => {
   const { email, username, password } = req.body
   const validUsername = await User.find({ username })
 

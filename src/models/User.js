@@ -6,6 +6,11 @@ const userSchema = new mongoose.Schema({
   email: String,
   username: String,
   passwordHash: String,
+  
+  movements: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Movement'
+  }]
 })
 
 userSchema.set('toJSON', {
