@@ -10,7 +10,7 @@ export const addCategory = async (req, res) => {
   const category = new Category({name, description, user: user.id})
   await category.save()
 
-  return res.status(200).send(category)
+  return res.status(201).send(category)
 }
 
 export const getCategory = async(req, res) => {

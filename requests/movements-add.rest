@@ -1,6 +1,6 @@
 POST http://localhost:3000/movements HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGRiN2QwNWUzMjlmNDM2ZTkyYWUwZiIsInVzZXJuYW1lIjoicGlwZVVzZXI1IiwiaWF0IjoxNjg3MDA5MjU0LCJleHAiOjE2ODcwMTI4NTR9.5Ool3coqGsjJD9RJpyO7-WK0WFnuYFveleJIr1zeJrQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGRiN2QwNWUzMjlmNDM2ZTkyYWUwZiIsInVzZXJuYW1lIjoicGlwZVVzZXI1IiwiaWF0IjoxNjg3MDE0MjE1LCJleHAiOjE2ODcwMTc4MTV9.n2P23dlWoGbNtaZAR9DzDEkRgJJ38OkKWpCyhkAPQ4o
     
     {
       "name": "Coca",

@@ -8,7 +8,7 @@ const movementSchema = new mongoose.Schema({
     enum: ['Income', 'Expense']
   },
   category: {
-    type: mongoose.Schema.Types.String,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Category'
   },
   date: Date,
