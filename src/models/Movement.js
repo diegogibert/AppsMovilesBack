@@ -7,7 +7,10 @@ const movementSchema = new mongoose.Schema({
     type: String,
     enum: ['Income', 'Expense']
   },
-  category: String,
+  category: {
+    type: mongoose.Schema.Types.String,
+    ref: 'Category'
+  },
   date: Date,
   account: String,
   amount: Number,

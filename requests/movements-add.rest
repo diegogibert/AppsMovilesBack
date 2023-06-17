@@ -6,7 +6,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGRiN2QwN
       "name": "Coca",
       "description": "Coca con amigos",
       "type": "Expense",
-      "category": "Oseo",
+      "category": "Bebida",
       "date": "2016-03-25",
       "account": "Visa",
       "note": "No vale la pena",
