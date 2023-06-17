@@ -1,0 +1,8 @@
+POST http://localhost:3000/category HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGRiN2QwNWUzMjlmNDM2ZTkyYWUwZiIsInVzZXJuYW1lIjoicGlwZVVzZXI1IiwiaWF0IjoxNjg3MDA5MjU0LCJleHAiOjE2ODcwMTI4NTR9.5Ool3coqGsjJD9RJpyO7-WK0WFnuYFveleJIr1zeJrQ
+
+    {
+      "name": "Caramelos",
+      "description": "caramelos"
+    }
