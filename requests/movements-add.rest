@@ -1,12 +1,12 @@
 POST http://localhost:3000/movements HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGRiN2QwNWUzMjlmNDM2ZTkyYWUwZiIsInVzZXJuYW1lIjoicGlwZVVzZXI1IiwiaWF0IjoxNjg3MDE0MjE1LCJleHAiOjE2ODcwMTc4MTV9.n2P23dlWoGbNtaZAR9DzDEkRgJJ38OkKWpCyhkAPQ4o
-    
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGRiN2QwNWUzMjlmNDM2ZTkyYWUwZiIsInVzZXJuYW1lIjoicGlwZVVzZXI1IiwiaWF0IjoxNjg3MDM3NDk1LCJleHAiOjE2ODcwNDEwOTV9.a0BNqWQ72ykswKUYrznsfiIkI0oUFhmsCt8NXbyZ8Gw
+   
     {
-      "name": "Coca",
+      "name": "Coca2",
       "description": "Coca con amigos",
       "type": "Expense",
-      "category": "Bebida",
+      "category": "Comida",
       "date": "2016-03-25",
       "account": "Visa",
       "note": "No vale la pena",

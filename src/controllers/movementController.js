@@ -5,10 +5,11 @@ export const addMovement = async (req, res) => {
   const { user } = req
   const { name, description, type, category, note, account, date, amount } = req.body
 
-  const categoryRef = Category.find({ user: user.id, category })
+  const categoryRef = await Category.findOne({ user: user.id, name: category })
 
   const movement = new Movement({ name, description, type, category: categoryRef.id, note, user: user.id, account, date, amount })
   await movement.save()
+  
   await movement.populate('category', {
     name: 1,
     description: 1
@@ -31,12 +32,15 @@ export const getMovements = async (req, res) => {
   const { user } = req
   const movements = await Movement.find({ user: user.id })
 
-  // movements.forEach(async (movement)=> {
-  //   await movement.populate('category', {
-  //     name: 1,
-  //     description: 1
-  //   })
-  // })
+  let populatedMovements = []
+
+  movements.forEach(async (movement)=> {
+    movement.populate('category', {
+      name: 1,
+      description: 1
+    })
+    populatedMovements.push(movement)
+  })
   
-  return res.status(200).send(movements)
+  return res.status(200).send(populatedMovements)
 }
