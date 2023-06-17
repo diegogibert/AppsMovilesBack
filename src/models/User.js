@@ -6,11 +6,22 @@ const userSchema = new mongoose.Schema({
   email: String,
   username: String,
   passwordHash: String,
+  incomes: {
+    type: Number,
+    default: 0
+  },
+  expenses: {
+    type: Number,
+    default: 0
+  },
+  movements: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Movement'
+  }]
 })
 
 userSchema.set('toJSON', {
   transform: (document, returnObject) => {
-    returnObject.id = returnObject._id
     delete returnObject._id
     delete returnObject.__v
     delete returnObject.passwordHash
