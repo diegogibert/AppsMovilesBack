@@ -12,7 +12,6 @@ export const addMovement = async (req, res) => {
   
   await movement.populate('category', {
     name: 1,
-    description: 1
   })
 
   if (type === 'Income') {
@@ -37,7 +36,6 @@ export const getMovements = async (req, res) => {
   movements.forEach(async (movement)=> {
     movement.populate('category', {
       name: 1,
-      description: 1
     })
     populatedMovements.push(movement)
   })
