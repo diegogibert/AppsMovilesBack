@@ -23,6 +23,7 @@ const movementSchema = new mongoose.Schema({
 
 movementSchema.set('toJSON', {
   transform: (document, returnObject) => {
+    returnObject.id = returnObject._id
     delete returnObject._id
     delete returnObject.__v
   }

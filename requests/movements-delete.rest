@@ -1,0 +1,3 @@
+DELETE http://localhost:3000/movements?id=648f9f8f2978e4d84de81e15 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGY5YzMzMmI1ZWNhZTZiZTE1MmVhMCIsInVzZXJuYW1lIjoicGlwZVVzZXIxIiwiaWF0IjoxNjg3MTMzNDI0LCJleHAiOjE2ODcxMzcwMjR9.Ccv7KX0EdYGcoDqMj1RX1PnpzKCqUNbcbPXaRYRjMoA

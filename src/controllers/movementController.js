@@ -8,9 +8,9 @@ export const addMovement = async (req, res) => {
   const categoryRef = await Category.findOne({ name: category })
   const movement = new Movement({ name, description, type, category: categoryRef.id, note, user: user.id, account, date, amount })
   await movement.save()
-  
+
   await movement.populate('category', {
-    name: 1,
+    name: 1
   })
 
   if (type === 'Income') {
@@ -30,14 +30,32 @@ export const getMovements = async (req, res) => {
   const { user } = req
   const movements = await Movement.find({ user: user.id })
 
-  let populatedMovements = []
+  const populatedMovements = []
 
-  movements.forEach(async (movement)=> {
+  movements.forEach(async (movement) => {
     movement.populate('category', {
-      name: 1,
+      name: 1
     })
     populatedMovements.push(movement)
   })
-  
+
   return res.status(200).send(populatedMovements)
+}
+
+export const removeMovement = async (req, res) => {
+  const { id } = req.query
+  const { user } = req
+  const movement = await Movement.findByIdAndRemove(id)
+  if (!movement) {
+    return res.status(404).send({ message: 'Movement not found' })
+  }
+  if (movement.type === 'Income') {
+    user.incomes = user.incomes - movement.amount
+  } else {
+    user.expenses = user.expenses - movement.amount
+  }
+
+  await user.save()
+
+  return res.status(200).send({ message: 'Movement removed' })
 }
