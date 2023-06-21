@@ -67,6 +67,8 @@ export const getMonthlyMovement = async (req, res) => {
   const movements = await Movement.find({ user: user.id })
 
   const populatedMovements = []
+  let monthIncomes = 0
+  let monthExpenses = 0
 
   movements.forEach(async (movement) => {
     const dateOfMovement = movement.date
@@ -76,8 +78,13 @@ export const getMonthlyMovement = async (req, res) => {
       movement.populate('category', {
         name: 1
       })
+      if (movement.type === 'Income') {
+        monthIncomes = monthIncomes + movement.amount
+      } else {
+        monthExpenses = monthExpenses + movement.amount
+      }
       populatedMovements.push(movement)
     }
   })
-  return res.status(200).send(populatedMovements)
+  return res.status(200).send({ incomes: monthIncomes, expenses: monthExpenses, movements: populatedMovements })
 }
