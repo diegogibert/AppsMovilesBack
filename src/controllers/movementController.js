@@ -59,3 +59,25 @@ export const removeMovement = async (req, res) => {
 
   return res.status(200).send({ message: 'Movement removed' })
 }
+
+export const getMonthlyMovement = async (req, res) => {
+  const { month } = req.query
+  const { user } = req
+
+  const movements = await Movement.find({ user: user.id })
+
+  const populatedMovements = []
+
+  movements.forEach(async (movement) => {
+    const dateOfMovement = movement.date
+    const movementMonth = dateOfMovement.getMonth()
+
+    if (movementMonth + 1 == month) {
+      movement.populate('category', {
+        name: 1
+      })
+      populatedMovements.push(movement)
+    }
+  })
+  return res.status(200).send(populatedMovements)
+}
