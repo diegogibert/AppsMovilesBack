@@ -52,3 +52,41 @@ export const userSummary = async (req, res) => {
   const last5Movements = movements.movements.slice(-5)
   return res.status(200).send({ incomes: user.incomes, expenses: user.expenses, last5Movements })
 }
+
+export const monthlyUserSummary = async (req, res) => {
+  const { month } = req.query
+  const { user } = req
+
+  let monthIncomes = 0
+  let monthExpenses = 0
+
+  const movements = await user.populate('movements', {
+    name: 1,
+    description: 1,
+    type: 1,
+    category: 1,
+    note: 1,
+    amount: 1,
+    account: 1,
+    date: 1
+  })
+
+  const populatedMovements = []
+
+  movements.movements.forEach(async (movement) => {
+    const dateOfMovement = movement.date
+    const movementMonth = dateOfMovement.getMonth()
+
+    if (movementMonth + 1 == month) {
+      populatedMovements.push(movement)
+      if (movement.type === 'Income') {
+        monthIncomes = monthIncomes + movement.amount
+      } else {
+        monthExpenses = monthExpenses + movement.amount
+      }
+    }
+  })
+
+  const last5Movements = populatedMovements.slice(-5)
+  return res.status(200).send({ incomes: monthIncomes, expenses: monthExpenses, last5Movements })
+}
